@@ -1,0 +1,25 @@
+New log file opened at Tue Nov 10 14:38:29 EST 2015 by 10420@MININT-QH3P5KQ
+Taking next connection to: 52452
+New client attempting to connect on port: 52453-52452
+  Address = /192.168.1.127:52452
+This client on port 52453 has uuid a741bafb-f2cd-49e1-96a9-88dd5e0fdd95 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-a741bafb-f2cd-49e1-96a9-88dd5e0fdd95
+Taking next connection to: 52452
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 52452
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 52452
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 52452
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 52452
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 10420@MININT-QH3P5KQ logs at Tue Nov 10 14:53:30 EST 2015, goodbye.
