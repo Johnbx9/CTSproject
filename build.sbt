@@ -1,4 +1,4 @@
-name := """ctsProject"""
+name := """ctsProject""""
 
 version := "1.0-SNAPSHOT"
 
