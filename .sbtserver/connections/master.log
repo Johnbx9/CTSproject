@@ -1,2 +1,7 @@
-New log file opened at Sat Nov 14 14:32:26 EST 2015 by 13704@MININT-QH3P5KQ
-Taking next connection to: 51316
+New log file opened at Sat Nov 14 14:46:41 EST 2015 by 11352@MININT-QH3P5KQ
+Taking next connection to: 51501CChecking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 11352@MININT-QH3P5KQ logs at Sat Nov 14 14:49:41 EST 2015, goodbye.

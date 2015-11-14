@@ -12,5 +12,5 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 # Below is the routes for the CTSproject
 # ========================================================================================
 
-#Get     /login
+post     /login                     controllers.Application.login()
 #get     /signup
