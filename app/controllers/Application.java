@@ -11,7 +11,8 @@ import static play.data.Form.form;
 
 public class Application extends Controller {
 
-    public Result index() {
+    public Result index()
+    {
         return ok(index.render("Your new application is ready."));
     }
 
@@ -26,7 +27,8 @@ public class Application extends Controller {
         if(user != null && user.authenticate(password))
         {
             session("user_id", user.id.toString());
-                    flash("success", "Welcome back " + user.username);
+            flash("success", "Welcome back " + user.username);
+            return redirect(routes.Application.index() );
         }
         else
         {
@@ -34,6 +36,27 @@ public class Application extends Controller {
         }
 
         return redirect(routes.Application.index());
+    }
+
+    public Result signup()
+    {
+        DynamicForm userform = form().bindFromRequest();
+        String username = userform.data().get("username");
+        String  password = userform.data().get("password");
+
+        User user = User.createNewUser(username, password);
+
+        if(user == null)
+        {
+            flash("error", "Invalid User Name");
+            return redirect(routes.Application.index() );
+        }
+
+        user.save();
+
+        flash("success", "Welcome! " + user.username);
+        session("user_id", user.id.toString() );
+        return redirect(routes.Application.index() );
     }
 
 }

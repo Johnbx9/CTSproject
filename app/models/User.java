@@ -8,6 +8,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Column;
 import javax.validation.Constraint;
 
 @Table(name = "users")
@@ -18,6 +19,7 @@ public class User extends Model
     public Long id;
 
     @Constraints.Required
+    @Column(unique = true)
     public String username;
 
     public String password_hash;
