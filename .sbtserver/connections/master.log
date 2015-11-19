@@ -1,7 +1,67 @@
-New log file opened at Sat Nov 14 14:46:41 EST 2015 by 11352@MININT-QH3P5KQ
-Taking next connection to: 51501CChecking to see if clients are empty...
+New log file opened at Thu Nov 19 10:41:25 EST 2015 by 6884@MININT-QH3P5KQ
+Taking next connection to: 51855
+New client attempting to connect on port: 51856-51855
+  Address = /169.254.2.241:51855
+This client on port 51856 has uuid 32ef6ccc-e405-43e2-93c7-47e4c095d990 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-32ef6ccc-e405-43e2-93c7-47e4c095d990
+Taking next connection to: 51855
+New client attempting to connect on port: 51874-51855
+  Address = /169.254.2.241:51855
+Handshake exception on socket: 51874
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 51855
+New client attempting to connect on port: 51875-51855
+  Address = /169.254.2.241:51855
+This client on port 51875 has uuid 7c0c4a68-39d3-4a89-bd85-0585789d3563 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-32ef6ccc-e405-43e2-93c7-47e4c095d990, play-fork-run-7c0c4a68-39d3-4a89-bd85-0585789d3563
+Taking next connection to: 51855
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51855
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51855
+New client attempting to connect on port: 51953-51855
+  Address = /169.254.2.241:51855
+Handshake exception on socket: 51953
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 51855
+New client attempting to connect on port: 51954-51855
+  Address = /169.254.2.241:51855
+This client on port 51954 has uuid b4e11e7f-68e9-477f-8d01-81ee98156994 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-32ef6ccc-e405-43e2-93c7-47e4c095d990, play-fork-run-b4e11e7f-68e9-477f-8d01-81ee98156994
+Taking next connection to: 51855
+Checking to see if clients are empty...
 No non-daemon clients connected after 3 min. Shutting down.
 Server socket thread exiting.
 0 clients open, will close them...
 All client sockets have been closed.
-Closing the 11352@MININT-QH3P5KQ logs at Sat Nov 14 14:49:41 EST 2015, goodbye.
+Closing the 6884@MININT-QH3P5KQ logs at Thu Nov 19 10:53:55 EST 2015, goodbye.
