@@ -26,7 +26,7 @@ public class Application extends Controller {
         if(user != null && user.authenticate(password))
         {
             session("user_id", user.id.toString());
-            flash("success", "Welcome back " + user.username);
+                    flash("success", "Welcome back " + user.username);
         }
         else
         {
