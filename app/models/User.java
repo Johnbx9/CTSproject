@@ -4,7 +4,6 @@ package models;
 import com.avaje.ebean.Model;
 import play.data.validation.Constraints;
 import org.mindrot.jbcrypt.BCrypt;
-import java.util.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -55,8 +54,12 @@ public class User extends Model
         String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
 
         User user = new User();
-        user.getId();
+        Long oldID = user.getId();
         user.id +=1L;
+        if(user.id == oldID)
+        {
+            user.id += 1L
+        }
         user.username = username;
         user.password_hash = passwordHash;
         return user;
