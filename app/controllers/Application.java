@@ -18,7 +18,7 @@ public class Application extends Controller {
 
     public Result login()
     {
-        DynamicForm userForm = form().bindFromRequest();
+        DynamicForm userForm = Form.form().bindFromRequest();
         String username = userForm.data().get("username");
         String password = userForm.data().get("password");
 
