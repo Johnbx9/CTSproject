@@ -4,6 +4,7 @@ package models;
 import com.avaje.ebean.Model;
 import play.data.validation.Constraints;
 import org.mindrot.jbcrypt.BCrypt;
+import java.util.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,11 +17,22 @@ import javax.validation.Constraint;
 public class User extends Model
 {
     @Id
-    public Integer id;
+    public Long id = 0L;
+
+    public void setId(Long id)
+    {
+        this.id = id;
+    }
+
+    public Long getId()
+    {
+        return id;
+    }
 
     @Constraints.Required
     @Column(unique = true)
     public String username;
+
 
     public String password_hash;
 
@@ -43,7 +55,8 @@ public class User extends Model
         String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
 
         User user = new User();
-        user.id = 1;
+        user.getId();
+        user.id +=1L;
         user.username = username;
         user.password_hash = passwordHash;
         return user;

@@ -55,7 +55,7 @@ public class Application extends Controller {
         user.save();
 
         flash("success", "Welcome! " + user.username);
-        session("user_id", user.id.toString() );
+        session("user_id: ", user.id.toString() );
         return redirect(routes.Application.index() );
     }
 
