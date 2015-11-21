@@ -40,7 +40,7 @@ public class Application extends Controller {
 
     public Result signup()
     {
-        DynamicForm userform = form().bindFromRequest();
+        DynamicForm userform = Form.form().bindFromRequest();
         String username = userform.data().get("username");
         String  password = userform.data().get("password");
 

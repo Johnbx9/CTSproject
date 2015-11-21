@@ -16,7 +16,7 @@ import javax.validation.Constraint;
 public class User extends Model
 {
     @Id
-    public Long id;
+    public Integer id;
 
     @Constraints.Required
     @Column(unique = true)
@@ -43,6 +43,7 @@ public class User extends Model
         String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
 
         User user = new User();
+        user.id = 1;
         user.username = username;
         user.password_hash = passwordHash;
         return user;
