@@ -58,7 +58,7 @@ public class User extends Model
         user.id +=1L;
         if(user.id == oldID)
         {
-            user.id += 1L
+            user.id += 1L;
         }
         user.username = username;
         user.password_hash = passwordHash;
