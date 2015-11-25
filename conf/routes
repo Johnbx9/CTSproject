@@ -10,6 +10,7 @@ GET     /                           controllers.Application.index()
 
 POST    /login                     controllers.Application.login()
 POST    /signup                    controllers.Application.signup()
+GET     /about                     controllers.About.index()
 
 
 

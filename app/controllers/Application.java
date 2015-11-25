@@ -18,7 +18,7 @@ public class Application extends Controller {
 
     public Result login()
     {
-        DynamicForm userForm = Form.form().bindFromRequest();
+        DynamicForm userForm = form().bindFromRequest();
         String username = userForm.data().get("username");
         String password = userForm.data().get("password");
 
@@ -28,7 +28,7 @@ public class Application extends Controller {
         {
             session("user_id", user.id.toString());
             flash("success", "Welcome back " + user.username);
-            return redirect(routes.Application.index() );
+            return redirect(routes.Application.index());
         }
         else
         {
@@ -40,7 +40,7 @@ public class Application extends Controller {
 
     public Result signup()
     {
-        DynamicForm userform = Form.form().bindFromRequest();
+        DynamicForm userform = form().bindFromRequest();
         String username = userform.data().get("username");
         String  password = userform.data().get("password");
 

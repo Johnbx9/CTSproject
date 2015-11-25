@@ -16,17 +16,7 @@ import javax.validation.Constraint;
 public class User extends Model
 {
     @Id
-    public Long id = 0L;
-
-    public void setId(Long id)
-    {
-        this.id = id;
-    }
-
-    public Long getId()
-    {
-        return id;
-    }
+    public Long id;
 
     @Constraints.Required
     @Column(unique = true)
@@ -54,12 +44,7 @@ public class User extends Model
         String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
 
         User user = new User();
-        Long oldID = user.getId();
-        user.id +=1L;
-        if(user.id == oldID)
-        {
-            user.id += 1L;
-        }
+
         user.username = username;
         user.password_hash = passwordHash;
         return user;

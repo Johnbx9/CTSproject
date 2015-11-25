@@ -1,0 +1,36 @@
+body
+{
+    background-color: #e9e1e1;
+
+}
+
+ul
+{
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li
+{
+    float: left;
+    text-align: center;
+}
+
+a:link, a:visited
+{
+
+    display: block;
+    width: 400px;
+    color: white;
+    background-color: #08931a;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a:hover, a:active
+{
+    background-color: #0fc126;
+}
