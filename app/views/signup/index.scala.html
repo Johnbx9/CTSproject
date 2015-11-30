@@ -1,0 +1,21 @@
+@(message: String)
+
+@main("Sign up"){
+
+    <form action="@routes.Application.signup()" method="post">
+        <label for = "username">Username</label>
+        <input type="text" name="username">
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" name="email">
+        <br> <button>Sign Up</button>
+    </form>
+
+    already have an account?
+    <br>
+    Login here
+
+}

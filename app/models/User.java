@@ -22,6 +22,8 @@ public class User extends Model
     @Column(unique = true)
     public String username;
 
+    public String email;
+
 
     public String password_hash;
 

@@ -4,7 +4,7 @@ body
 
 }
 
-ul
+.Mainul
 {
     list-style-type:none;
     margin: 0;
@@ -12,13 +12,13 @@ ul
     overflow: hidden;
 }
 
-li
+.MainLi
 {
     float: left;
     text-align: center;
 }
 
-a:link, a:visited
+.MainLink:link, .MainLink:visited
 {
 
     display: block;
@@ -30,7 +30,7 @@ a:link, a:visited
     text-transform: uppercase;
 }
 
-a:hover, a:active
+.MainLink:hover, .MainLink:active
 {
     background-color: #0fc126;
 }
