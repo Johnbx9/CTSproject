@@ -1,0 +1,25 @@
+@(movies: List[Tool])
+
+@main("tool descriptions"){
+
+<h1>Tool Descrptions</h1>
+
+<form action="@routes.toolDescription.create()" method="post">
+
+    <label for="summary">Summary</label>
+    <input type="text" name="summary">
+    <br>
+
+    <button>Comment</button>
+
+</form>
+
+<h2>Tools</h2>
+<ul>
+    @for(m <- movies) {
+
+    <ol style="font-size: 20px;">@m.summary</ol>
+    }
+</ul>
+
+}

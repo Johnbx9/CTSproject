@@ -3,6 +3,12 @@
 
 # --- !Ups
 
+create table tool (
+  id                        bigserial not null,
+  summary                   varchar(255),
+  constraint pk_tool primary key (id))
+;
+
 create table users (
   id                        bigserial not null,
   username                  varchar(255),
@@ -16,6 +22,8 @@ create table users (
 
 
 # --- !Downs
+
+drop table if exists tool cascade;
 
 drop table if exists users cascade;
 

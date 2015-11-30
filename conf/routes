@@ -10,8 +10,12 @@ GET     /                           controllers.Application.index()
 
 POST    /login                     controllers.Application.login()
 POST    /signup                    controllers.Application.signup()
+
 GET     /about                     controllers.About.index()
 GET     /signup                    controllers.User.index()
+
+GET     /toolDescription           controllers.toolDescription.index()
+POST    /toolDescription           controllers.toolDescription.create()
 
 
 
