@@ -16,14 +16,14 @@ public class toolDescription extends Controller
 {
     public Result index()
     {
-        List<Tool> movies = Tool.find.all();
-        return ok(views.html.toolDescription.index.render(movies));
+        List<Tool> tool = Tool.find.all();
+        return ok(views.html.toolDescription.index.render(tool));
     }
 
 
     public Result create() {
-        Form<Tool> movieForm = form(Tool.class).bindFromRequest();
-        String genre_id = movieForm.data().get("genre_id");
+        Form<Tool> toolForm = form(Tool.class).bindFromRequest();
+        String genre_id = toolForm.data().get("genre_id");
 
        // Genre genre = Genre.find.byId(Long.parseLong(genre_id));
        // if (genre == null) {
@@ -31,10 +31,25 @@ public class toolDescription extends Controller
        //     return redirect(routes.Movies.index());
        // }
 
-        Tool movie = movieForm.get();
+        Tool tool = toolForm.get();
       //  movie.genre = genre;
-        movie.save();
+        tool.save();
         //flash("success", "Saved new Tool: " + movie.title);
         return redirect(routes.toolDescription.index());
+    }
+
+    public Result show(Long id)
+    {
+        Tool tool = Tool.find.byId(id);
+
+
+        if(tool == null)
+        {
+            return notFound("not found");
+        }
+        else
+        {
+            return ok(views.html.toolDescription.show.render(tool) );
+        }
     }
 }

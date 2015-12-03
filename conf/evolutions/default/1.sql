@@ -6,6 +6,9 @@
 create table tool (
   id                        bigserial not null,
   summary                   varchar(255),
+  tool_owner                varchar(255),
+  tool_category             varchar(255),
+  image                     bytea,
   constraint pk_tool primary key (id))
 ;
 

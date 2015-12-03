@@ -35,7 +35,7 @@ public class User extends Model
         return BCrypt.checkpw(password, this.password_hash);
     }
 
-    public static User createNewUser(String username, String password)
+    public static User createNewUser(String username, String password, String email)
     {
         if (password == null || username == null || password.length() < 8)
         {
@@ -49,6 +49,7 @@ public class User extends Model
 
         user.username = username;
         user.password_hash = passwordHash;
+        user.email = email;
         return user;
     }
 }

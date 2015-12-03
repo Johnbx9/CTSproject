@@ -2,7 +2,7 @@
 
 @main("Sign up"){
 
-    <form action="@routes.Application.signup()" method="post">
+    <form action="@routes.User.signup()" method="post">
         <label for = "username">Username</label>
         <input type="text" name="username">
         <br>
@@ -14,8 +14,8 @@
         <br> <button>Sign Up</button>
     </form>
 
-    already have an account?
+    Already have an account?
     <br>
-    Login here
+   <a href="@routes.Application.index()">Login here</a>
 
 }

@@ -1,0 +1,15 @@
+@(message : String)
+
+@main("upload tool"){
+
+    <form action="@routes.toolUpload.upload()" method="post">
+        <label for="toolOwner">Enter your full name</label>
+        <input type="text" name="toolOwner">
+        <br>
+        <label for="summary">Enter your description of your tool</label>
+        <input type="text" name="summary">
+
+        <button>Submit</button>
+
+    </form>
+}
