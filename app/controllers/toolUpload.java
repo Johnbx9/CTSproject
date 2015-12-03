@@ -1,6 +1,6 @@
 package controllers;
 
-import models.Tool;
+import models.*;
 import play.data.Form;
 import play.mvc.*;
 
@@ -18,11 +18,12 @@ public class toolUpload extends Controller
 
     public Result upload()
     {
-        Form<Tool> toolform = form(Tool.class).bindFromRequest();
+        Form<Tool> toolForm = form(Tool.class).bindFromRequest();
 
-        Tool tool = toolform.get();
+
+        Tool tool = toolForm.get();
         tool.save();
-        flash("success", "saved Tool for " + tool.toolOwner + " and your summary: " + tool.summary);
+        flash("success", "saved Tool for " + tool.toolOwner + " and your summary: " + tool.toolDescription);
         return redirect(routes.userProfile.index() );
 
     }

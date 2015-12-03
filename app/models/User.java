@@ -24,7 +24,6 @@ public class User extends Model
 
     public String email;
 
-
     public String password_hash;
 
     // finder object for easier querying

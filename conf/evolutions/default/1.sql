@@ -5,7 +5,8 @@
 
 create table tool (
   id                        bigserial not null,
-  summary                   varchar(255),
+  name                      varchar(255),
+  tool_description          varchar(255),
   tool_owner                varchar(255),
   tool_category             varchar(255),
   image                     bytea,

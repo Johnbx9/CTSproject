@@ -3,13 +3,14 @@
 @main("upload tool"){
 
     <form action="@routes.toolUpload.upload()" method="post">
-        <label for="toolOwner">Enter your full name</label>
-        <input type="text" name="toolOwner">
+        <label for="name">Enter the name of your tool</label>
         <br>
-        <label for="summary">Enter your description of your tool</label>
-        <input type="text" name="summary">
-
+        <input type="text" name="name">
+        <br>
+        <label for="toolDescription">Enter the condition of the tool</label>
+        <br>
+        <textarea cols="10" rows="10" name="toolDescription"></textarea>
+        <br>
         <button>Submit</button>
-
     </form>
 }

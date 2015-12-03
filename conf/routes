@@ -8,19 +8,19 @@ GET     /                           controllers.Application.index()
 # Below is the routes for the CTSproject
 # ========================================================================================
 
-POST    /login                     controllers.User.login()
-POST    /signup                    controllers.User.signup()
-GET     /signup                    controllers.User.index()
+POST    /login                      controllers.User.login()
+POST    /signup                     controllers.User.signup()
+GET     /signup                     controllers.User.index()
 
-GET     /profile                   controllers.userProfile.index()
+GET     /profile                    controllers.userProfile.index()
 
-GET     /upload                    controllers.toolUpload.index()
-POST    /upload                    controllers.toolUpload.upload()
+GET     /upload                     controllers.toolUpload.index()
+POST    /upload                     controllers.toolUpload.upload()
 
-GET     /about                     controllers.About.index()
-GET     /toolDescription           controllers.toolDescription.index()
-POST    /toolDescription           controllers.toolDescription.create()
-GET     /tool/:id                  controllers.toolDescription.show(id: Long)
+GET     /about                      controllers.About.index()
+GET     /toolDescription            controllers.toolDescription.index()
+POST    /toolDescription            controllers.toolDescription.create()
+GET     /tool/:id                   controllers.toolDescription.show(id: Long)
 
 
 

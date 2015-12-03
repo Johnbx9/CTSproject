@@ -5,10 +5,11 @@
 <h1>this is your profile</h1>
 
 <a href="@routes.toolUpload.index()">upload your tool here</a>
+<br>
 
 
-    @for(m <- tool){
-    <li> <a href="@routes.toolDescription.show(m.id)">@m.toolOwner <br> @m.summary </a> </li>
+    @for(t <- tool){
+    <br><li> <a href="@routes.toolDescription.show(t.id)">@t.name <br> @t.toolDescription </a> </li>
 
 }
 
