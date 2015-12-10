@@ -9,7 +9,7 @@ import static play.data.Form.form;
 /**
  * Created by Alienware Grunt on 11/30/2015.
  */
-public class User extends Controller
+public class Users extends Controller
 {
     public Result index()
     {
@@ -23,6 +23,7 @@ public class User extends Controller
         String password = userForm.data().get("password");
 
         models.User user = models.User.find.where().eq("username", username).findUnique();
+
 
         if(user != null && user.authenticate(password))
         {
@@ -47,6 +48,7 @@ public class User extends Controller
 
         models.User user = models.User.createNewUser(username, password, email);
 
+
         if(user == null)
         {
             flash("error", "Invalid User Name");
@@ -56,7 +58,19 @@ public class User extends Controller
         user.save();
 
         flash("success", "Welcome to our community! " + user.username);
-        session("user_id: ", user.id.toString() );
+        session("user_id", user.id.toString() );
         return redirect(routes.userProfile.index() );
     }
+
+    public Result logout()
+    {
+        for (int i = 0; i <= session().size(); i++)
+        {
+            session().remove("user_id");
+
+        }
+
+        return redirect(routes.Application.index() );
+    }
+
 }

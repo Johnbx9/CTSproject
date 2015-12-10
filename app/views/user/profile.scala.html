@@ -6,11 +6,45 @@
 
 <a href="@routes.toolUpload.index()">upload your tool here</a>
 <br>
+<a href="@routes.Users.logout()">logout</a>
+<br>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
 
     @for(t <- tool){
-    <br><li> <a href="@routes.toolDescription.show(t.id)">@t.name <br> @t.toolDescription </a> </li>
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/320x150" alt="">
+                        <div class="caption">
+                            <h4 class="pull-right">$24.99</h4>
+                            <h4><a href="@routes.toolDescription.show(t.id)">@t.name</a>
+                            </h4>
+                            <p>@t.toolDescription.</p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">15 reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
 }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 }

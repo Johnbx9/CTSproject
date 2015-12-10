@@ -3,11 +3,11 @@
 @main("Community Tool Sharing") {
 
 
+<center>
+    <h1>Please login below</h1>
 
-<h1>Please login below</h1>
 
-
-    <form action="@routes.User.login()" method="post">
+    <form action="@routes.Users.login()" method="post">
         <label for="username">UserName</label>
         <input type="text" name="username">
         <br>
@@ -20,8 +20,8 @@
 
     Don't have an account?
     <br>
-    <a href="@routes.User.index()">Sign up here</a>
-
+    <a href="@routes.Users.index()">Sign up here</a>
+</center>
 
 
 }
