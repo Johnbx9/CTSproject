@@ -12,17 +12,14 @@ POST    /login                      controllers.Users.login()
 POST    /signup                     controllers.Users.signup()
 GET     /signup                     controllers.Users.index()
 GET     /logout                     controllers.Users.logout()
-
-GET     /profile                    controllers.userProfile.index()
+GET     /profile/:username          controllers.userProfile.index(id: Long, username: String)
 
 GET     /upload                     controllers.toolUpload.index()
 POST    /upload                     controllers.toolUpload.upload()
+GET     /tool/:id                   controllers.toolUpload.show(id: Long)
 
 GET     /about                      controllers.About.index()
-GET     /toolDescription            controllers.toolDescription.index()
-POST    /toolDescription            controllers.toolDescription.create()
-GET     /tool/:id                   controllers.toolDescription.show(id: Long)
-
+GET     /AllTools                   controllers.toolUpload.showAll()
 
 
 

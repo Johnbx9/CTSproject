@@ -1,8 +1,8 @@
 package controllers;
 
+
 import play.data.DynamicForm;
 import play.mvc.*;
-import views.html.index;
 
 import static play.data.Form.form;
 
@@ -13,7 +13,7 @@ public class Users extends Controller
 {
     public Result index()
     {
-        return ok(views.html.signup.index.render("ready") );
+        return ok(views.html.signup.index.render("ok") );
     }
 
     public Result login()
@@ -29,7 +29,7 @@ public class Users extends Controller
         {
             session("user_id", user.id.toString());
             flash("success", "Welcome back " + user.username);
-            return redirect(routes.userProfile.index());
+            return redirect(routes.userProfile.index(user.id, user.username));
         }
         else
         {
@@ -59,7 +59,7 @@ public class Users extends Controller
 
         flash("success", "Welcome to our community! " + user.username);
         session("user_id", user.id.toString() );
-        return redirect(routes.userProfile.index() );
+        return redirect(routes.userProfile.index(user.id, user.username) );
     }
 
     public Result logout()

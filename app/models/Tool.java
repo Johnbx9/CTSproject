@@ -36,5 +36,5 @@ public class Tool extends Model
 
 
     // A finder object for easier querying
-    public static Finder<Long, Tool> find = new Finder<Long, Tool>(Tool.class);
+    public static Finder<Long, Tool> find = new Finder<>(Tool.class);
 }

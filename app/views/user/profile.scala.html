@@ -1,4 +1,4 @@
-@(tool: List[Tool])
+@(tool: List[Tool], user: User)
 
 @main("Tool Sharing Community"){
 
@@ -14,13 +14,14 @@
         <div class="col-md-9">
             <div class="row">
 
+
     @for(t <- tool){
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
                         <img src="http://placehold.it/320x150" alt="">
                         <div class="caption">
                             <h4 class="pull-right">$24.99</h4>
-                            <h4><a href="@routes.toolDescription.show(t.id)">@t.name</a>
+                            <h4><a href="@routes.toolUpload.show(t.id)">@t.name</a>
                             </h4>
                             <p>@t.toolDescription.</p>
                         </div>

@@ -4,6 +4,7 @@ package controllers;
 import models.Tool;
 import models.User;
 import play.mvc.*;
+import views.html.index;
 
 import java.util.List;
 
@@ -12,10 +13,14 @@ import java.util.List;
  */
 public class userProfile extends Controller
 {
-    public Result index()
+    public Result index(Long id, String username)
     {
-        List<Tool> tool = Tool.find.all();
+        User user = User.find.byId(id);
 
-        return ok(views.html.user.profile.render(tool));
+
+        if (session().containsKey("user_id") && session().get("user_id").equals(user.id.toString() ) )
+            return ok(views.html.user.profile.render(user.toolList, user) );
+        else
+            return ok(index.render("ready") );
     }
 }

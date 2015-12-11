@@ -5,11 +5,10 @@ import com.avaje.ebean.Model;
 import play.data.validation.Constraints;
 import org.mindrot.jbcrypt.BCrypt;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.validation.Constraint;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "users")
 @Entity
@@ -26,8 +25,12 @@ public class User extends Model
 
     public String password_hash;
 
+    @OneToMany(mappedBy = "toolOwner")
+    public List<Tool> toolList = new ArrayList<>();
+
+
     // finder object for easier querying
-    public static Finder<Long, User> find =  new Finder<Long, User>(User.class);
+    public static Finder<Long, User> find =  new Finder<>(User.class);
 
     public boolean authenticate(String password)
     {

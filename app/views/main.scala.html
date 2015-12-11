@@ -42,7 +42,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 @if(session.containsKey("user_id")){
-                <a class="navbar-brand" href="@routes.userProfile.index()">Hammer Time</a>
+                <a class="navbar-brand" href='@routes.userProfile.index(Long.parseLong(session().get("user_id")), session().get("user_id") )'>Hammer Time</a>
                 }else{
                 <a class="navbar-brand" href="@routes.Application.index()">Hammer Time</a>
                 }
@@ -54,7 +54,7 @@
                         <a href="@routes.About.index()">About</a>
                     </li>
                     <li>
-                        <a href="#">Tools</a>
+                        <a href="@routes.toolUpload.showAll()">Tools</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>
