@@ -27,4 +27,5 @@ public class Borrow extends Model
 
     public static Finder<Integer, Borrow> find = new Finder<Integer, Borrow>(Borrow.class);
 
+
 }
