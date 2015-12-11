@@ -30,7 +30,7 @@ public class User extends Model
 
 
     // finder object for easier querying
-    public static Finder<Long, User> find =  new Finder<>(User.class);
+    public static Finder<Long, User> find =  new Finder<Long, User>(User.class);
 
     public boolean authenticate(String password)
     {
