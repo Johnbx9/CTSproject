@@ -1,4 +1,4 @@
-@(message: String)
+@(option : List[Category])
 
 @main("upload tool"){
 <center>
@@ -10,6 +10,13 @@
         <label for="toolDescription">Enter the condition of the tool</label>
         <br>
         <textarea cols="75" rows="10" name="toolDescription"></textarea>
+        <br>
+
+        <select name="id">
+            @for(c <- option){
+            <option value="@c.id">@c.name</option>
+        }
+        </select>
         <br>
         <button>Submit</button>
     </form>

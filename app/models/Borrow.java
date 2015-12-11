@@ -25,7 +25,7 @@ public class Borrow extends Model
     @ManyToOne
     public Tool tools;
 
-    public static Finder<Integer, Borrow> find = new Finder<Integer, Borrow>(Borrow.class);
+    public static Model.Finder<Integer, Borrow> find = new Finder<Integer, Borrow>(Borrow.class);
 
 
 }

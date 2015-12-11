@@ -1,6 +1,7 @@
 package controllers;
 
 
+import models.Category;
 import models.Tool;
 import models.User;
 import play.mvc.*;

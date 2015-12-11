@@ -6,7 +6,7 @@ import play.data.validation.Constraints;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,8 +21,9 @@ public class ToolCategory extends Model
     @Constraints.Required
     public String cName;
 
-    public List<Tool> toolC;
+    @OneToMany(mappedBy = "tc")
+    public List<Tool> toolC = new ArrayList<>();
 
-    public static Finder<Long, ToolCategory> find = new Finder<Long, ToolCategory>(ToolCategory.class);
+    public static Model.Finder<Long, ToolCategory> find = new Finder<Long, ToolCategory>(ToolCategory.class);
 
 }

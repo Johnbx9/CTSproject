@@ -16,7 +16,8 @@ public class toolUpload extends Controller
 {
     public Result index()
     {
-        return ok(views.html.toolDescription.uploadTool.render("ready") );
+        List<Category> options = Category.find.all();
+        return ok(views.html.toolDescription.uploadTool.render(options) );
     }
 
     @Security.Authenticated(UserAuth.class)
@@ -24,9 +25,15 @@ public class toolUpload extends Controller
     {
         User user = User.find.byId(Long.parseLong(session().get("user_id")) );
 
+
         Form<Tool> toolForm = form(Tool.class).bindFromRequest();
         Tool tool = toolForm.get();
         tool.toolOwner = user;
+
+        // gets tool category from the form and save to tool model tc
+        String tcid = toolForm.data().get("id");
+        Category option = Category.find.byId(Long.parseLong(tcid));
+        tool.tc = option;
 
         tool.save();
 
@@ -39,7 +46,6 @@ public class toolUpload extends Controller
     public Result show(Long id)
     {
         Tool tool = Tool.find.byId(id);
-
 
         if(tool == null)
         {

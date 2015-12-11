@@ -24,15 +24,16 @@ public class User extends Model
     public String email;
 
     public String password_hash;
+    public String address;
 
     @OneToMany(mappedBy = "toolOwner")
     public List<Tool> toolList = new ArrayList<>();
 
 
     // finder object for easier querying
-    public static Finder<Long, User> find = new Finder<Long, User>(User.class);
+    public static Model.Finder<Long,User> find = new Finder<Long, User>(User.class);
 
-    
+
     public boolean authenticate(String password)
     {
         return BCrypt.checkpw(password, this.password_hash);

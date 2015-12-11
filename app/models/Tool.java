@@ -14,7 +14,7 @@ public class Tool extends Model
     @Id
     public Long id;
 
-    @Constraints.Required
+
     public String name;
     @Constraints.Required
     public String toolDescription;
@@ -25,7 +25,7 @@ public class Tool extends Model
 
 
     @ManyToOne
-    public ToolCategory tc;
+    public Category tc;
 
     @OneToMany
     public List<Borrow> borrowBy;
@@ -36,5 +36,5 @@ public class Tool extends Model
 
 
     // A finder object for easier querying
-    public static Finder<Long, Tool> find = new Finder<Long, Tool>(Tool.class);
+    public static Model.Finder<Long, Tool> find = new Finder<Long, Tool>(Tool.class);
 }
