@@ -38,7 +38,7 @@ public class toolUpload extends Controller
         tool.save();
 
         // tool owner is the Username of the person who is uploading
-        flash("success", "saved Tool for " + tool.toolOwner.username + " and your summary: " + tool.toolDescription);
+        flash("success", "Tool was saved");
 
         return redirect(routes.userProfile.index( Long.parseLong(session().get("user_id")) , user.username) );
     }
