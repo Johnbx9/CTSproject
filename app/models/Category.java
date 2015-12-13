@@ -21,7 +21,7 @@ public class Category extends Model
     @Constraints.Required
     public String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "tc")
     public List<Tool> toolList;
 
 

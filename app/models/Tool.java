@@ -1,10 +1,10 @@
 package models;
 
 import com.avaje.ebean.Model;
-import play.data.validation.Constraints;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 // Tool is for submitting Tool
 
@@ -14,25 +14,22 @@ public class Tool extends Model
     @Id
     public Long id;
 
-
     public String name;
-    @Constraints.Required
-    public String toolDescription;
 
+    public String toolDescription;
+    // String tool category id
+    public String stc;
 
     @ManyToOne
     public User toolOwner;
 
-
     @ManyToOne
     public Category tc;
 
-    @OneToMany
-    public List<Borrow> borrowBy;
-
-    public int isborrow;
+    public boolean isBorrow;
     @ManyToOne
-    public User borrower;
+    public Borrow borrower;
+
 
 
     // A finder object for easier querying

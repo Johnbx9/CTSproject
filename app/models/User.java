@@ -24,6 +24,7 @@ public class User extends Model
     public String email;
 
     public String password_hash;
+
     public String address;
 
     @OneToMany(mappedBy = "toolOwner")

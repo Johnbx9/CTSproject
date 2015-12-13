@@ -2,9 +2,32 @@
 
 @main("tool"){
 
+<br>
+<br>
 Owner: @User.find.byId(tool.toolOwner.id).username
 <br>
 Tool Description: @tool.toolDescription
+<br>
+tool borrow status: @tool.isBorrow
+<br>
+who is borrowing the tool: tool.borrower.name
+<br>
 
+<form action="@routes.toolUpload.borrow(tool.id)" method="post">
+    @if(tool.isBorrow == true){
+        <button>borrow</button>
+    }else{
+        <button>unavailable</button>
+    }
+</form>
+
+    @if(tool.isBorrow != true && tool.borrower.name == User.find.byId(Long.parseLong(session().get("user_id")) ).username){
+        <br>
+        <h1>Ready to return the tool?</h1>
+
+        <form action="@routes.toolUpload.giveback(tool.id)" method="post" >
+            <button>return</button>
+        </form>
+    }
 
 }

@@ -1,12 +1,12 @@
 package controllers;
 
-
-import models.Category;
-import models.Tool;
+import models.Borrow;
 import models.User;
 import play.mvc.*;
 import views.html.index;
+import views.html.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**

@@ -1,11 +1,13 @@
 package models;
 
 import com.avaje.ebean.Model;
-import play.data.validation.Constraints;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by Alienware Grunt on 12/9/2015.
@@ -15,17 +17,14 @@ import javax.persistence.ManyToOne;
 public class Borrow extends Model
 {
     @Id
-    public int id;
+    public Long id;
 
-    @Constraints.Required
-    @ManyToOne
-    public User users;
+    // save the name (maybe id) of the person who is borrowing a tool
+    public String name;
 
-    @Constraints.Required
-    @ManyToOne
-    public Tool tools;
 
-    public static Model.Finder<Integer, Borrow> find = new Finder<Integer, Borrow>(Borrow.class);
+
+    public static Model.Finder<Long, Borrow> find = new Finder<Long, Borrow>(Borrow.class);
 
 
 }
