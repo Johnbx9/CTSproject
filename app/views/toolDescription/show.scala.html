@@ -3,31 +3,58 @@
 @main("tool"){
 
 <br>
-<br>
-Owner: @User.find.byId(tool.toolOwner.id).username
-<br>
-Tool Description: @tool.toolDescription
-<br>
 tool borrow status: @tool.isBorrow
 <br>
-who is borrowing the tool: tool.borrower.name
-<br>
 
-<form action="@routes.toolUpload.borrow(tool.id)" method="post">
-    @if(tool.isBorrow == true){
-        <button>borrow</button>
-    }else{
-        <button>unavailable</button>
-    }
-</form>
+    <center><img src="@routes.Assets.versioned("images/hammer.jpg")" width="300" height="200" /></center>
+    <br>
+    <center>Owner: @User.find.byId(tool.toolOwner.id).username</center>
+    <br>
+    <center>Tool Description: @tool.toolDescription</center>
+    <br>
 
-    @if(tool.isBorrow != true && tool.borrower.name == User.find.byId(Long.parseLong(session().get("user_id")) ).username){
+    <form action="@routes.toolUpload.borrow(tool.id)" method="post">
+        @if(tool.isBorrow == true){
+        <center><button  class="btn btn-lg btn-success">Borrow</button></center>
+        }else{
+        <center><button  class="btn btn-lg btn-danger">Unavailable</button></center>
+        }
+    </form>
+
+
+
+@if(tool.isBorrow != true && tool.borrower.name == User.find.byId(Long.parseLong(session().get("user_id")) ).username){
         <br>
         <h1>Ready to return the tool?</h1>
 
         <form action="@routes.toolUpload.giveback(tool.id)" method="post" >
-            <button>return</button>
+            <center><button class="btn btn-lg btn-warning">Return</button></center>
         </form>
     }
+
+
+<div id="disqus_thread" style="padding: 100px;">
+    <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function () {
+        this.page.url = 'http://example.com';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//EXAMPLE.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
 
 }
