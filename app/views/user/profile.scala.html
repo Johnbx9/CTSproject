@@ -20,7 +20,7 @@
     @for(t <- tool){
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
-                        <img src="http://placehold.it/320x150" alt="">
+                        <img src='@routes.Assets.versioned("stylesheets/bootstrap.min.css")' alt="">
                         <div class="caption">
                             <h4 class="pull-right"></h4>
                             <h4><a href="@routes.toolUpload.show(t.id)">@t.name</a>

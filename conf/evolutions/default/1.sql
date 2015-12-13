@@ -27,12 +27,6 @@ create table tool (
   constraint pk_tool primary key (id))
 ;
 
-create table tool_category (
-  id                        bigserial not null,
-  c_name                    varchar(255),
-  constraint pk_tool_category primary key (id))
-;
-
 create table users (
   id                        bigserial not null,
   username                  varchar(255),
@@ -63,8 +57,6 @@ drop table if exists borrow cascade;
 drop table if exists category cascade;
 
 drop table if exists tool cascade;
-
-drop table if exists tool_category cascade;
 
 drop table if exists users cascade;
 
