@@ -4,11 +4,6 @@
 
 <h1>this is your profile</h1>
 
-<a href="@routes.toolUpload.index()">upload your tool here</a>
-<br>
-<a href="@routes.Users.logout()">logout</a>
-<br>
-
 <br>
 
 <div class="container">
@@ -19,7 +14,15 @@
     @for(t <- tool){
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
-                        <img src='@routes.Assets.versioned("stylesheets/bootstrap.min.css")' alt="">
+                        @if(t.tc.id == 1){
+                        <img src='@routes.Assets.versioned("images/1.png")'/>
+                        }
+                        @if(t.tc.id == 2){
+                        <img src='@routes.Assets.versioned("images/2.png")'/>
+                        }
+                        @if(t.tc.id == 3){
+                        <img src='@routes.Assets.versioned("images/3.png")'/>
+                        }
                         <div class="caption">
                             <h4 class="pull-right"></h4>
                             <h4><a href="@routes.toolUpload.show(t.id)">@t.name</a>
@@ -43,7 +46,9 @@
 </div>
 
 <br>
+@if(!user.borrowList.isEmpty() ){
     <center><h3>Tools that you are borrowing right now</h3></center>
+}
 <br>
 
 <div class="container">
@@ -54,7 +59,15 @@
     @for(b <- borrowList){
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-                <img src='@routes.Assets.versioned("stylesheets/bootstrap.min.css")' alt="">
+                @if(b.tc.id == 1){
+                <img src='@routes.Assets.versioned("images/1.png")'/>
+                }
+                @if(b.tc.id == 2){
+                <img src='@routes.Assets.versioned("images/2.png")'/>
+                }
+                @if(b.tc.id == 3){
+                <img src='@routes.Assets.versioned("images/3.png")'/>
+                }
                 <div class="caption">
                     <h4 class="pull-right"></h4>
                     <h4><a href="@routes.toolUpload.show(b.id)">@b.name</a>

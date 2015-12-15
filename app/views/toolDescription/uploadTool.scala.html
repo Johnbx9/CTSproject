@@ -5,11 +5,11 @@
     <form action="@routes.toolUpload.upload()" method="post">
         <label for="name">Enter the name of your tool</label>
         <br>
-        <input type="text" name="name">
+        <input type="text" name="name" required>
         <br>
         <label for="toolDescription">Enter the condition of the tool</label>
         <br>
-        <textarea cols="75" rows="10" name="toolDescription"></textarea>
+        <textarea cols="75" rows="10" name="toolDescription" required placeholder="Need to leave a description..."></textarea>
         <br>
 
         <select name="stc">

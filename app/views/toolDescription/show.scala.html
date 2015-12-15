@@ -3,7 +3,15 @@
 @main("tool"){
 
 <br>
-    <center><img src="@routes.Assets.versioned("images/hammer.jpg")" width="300" height="200" /></center>
+    @if(tool.tc.id == 1){
+        <center><img src='@routes.Assets.versioned("images/1.png")'/></center>
+    }
+    @if(tool.tc.id == 2){
+        <center><img src='@routes.Assets.versioned("images/2.png")'/></center>
+    }
+    @if(tool.tc.id == 3){
+        <center><img src='@routes.Assets.versioned("images/3.png")'/></center>
+    }
     <br>
     <center>Owner: @User.find.byId(tool.toolOwner.id).username</center>
     <br>
@@ -41,7 +49,7 @@
      */
 
     var disqus_config = function () {
-        this.page.url = 'http://example.com';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.url = 'http://sleepy-badlands-2483.herokuapp.com/tool/@tool.id';  // Replace PAGE_URL with your page's canonical URL variable
         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 

@@ -42,7 +42,7 @@ public class toolUpload extends Controller
 
         return redirect(routes.userProfile.index( Long.parseLong(session().get("user_id")) , user.username) );
     }
-
+//    @Security.Authenticated(UserAuth.class)
     public Result show(Long id)
     {
         Tool tool = Tool.find.byId(id);

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/hammer.jpg")">
+    <link rel="shortcut icon" type="image/png" href='@routes.Assets.versioned("images/hammerIcon.png")'>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,6 +56,14 @@
                     <li>
                         <a href="@routes.About.index()">Contact</a>
                     </li>
+                @if(session.containsKey("user_id")){
+                    <li>
+                        <a href="@routes.toolUpload.index()">Upload</a>
+                    </li>
+                    <li>
+                        <a href="@routes.Users.logout()">Logout</a>
+                    </li>
+                    }
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -65,14 +73,20 @@
 
         @* Display flash messages *@
         @if(flash.containsKey("success")) {
-            <p>Success Flash Message:</p>
-            @flash.get("success")
+            <center> <p>Success Flash Message:</p>
+            @flash.get("success") </center>
         }
         @if(flash.containsKey("error")) {
-            <p>Error Flash Message:</p>
-            @flash.get("error")
+            <center> <p>Error Flash Message:</p>
+            @flash.get("error") </center>
         }
 
         @content
+
+        <!-- jQuery -->
+        <script src='@routes.Assets.versioned("javascripts/jquery.js")'></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src='@routes.Assets.versioned("javascripts/bootstrap.min.js")'></script>
     </body>
 </html>
