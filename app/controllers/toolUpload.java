@@ -68,7 +68,7 @@ public class toolUpload extends Controller
     {
         Tool borrowTool = Tool.find.byId(id);
 
-        if (borrowTool.isBorrow == false)
+        if (!borrowTool.isBorrow)
         {
             //can't borrow the tool
             flash("error", "Can't be borrowed at the moment");
@@ -77,16 +77,12 @@ public class toolUpload extends Controller
         else
         {
             // create a new borrower instance and save the username to the borrower
-            Borrow borrower = new Borrow();
-            borrower.name = User.find.byId(Long.parseLong(session().get("user_id") )).username;
+            borrowTool.borrower = User.find.byId(Long.parseLong(session().get("user_id") ));
 
-            // change isBorrow to false
+            // change isBorrow to false to know that it isn't available
             borrowTool.isBorrow = false;
-            //saving the borrower in the tool model
-            borrowTool.borrower = borrower;
 
             // save
-            borrower.save();
             borrowTool.save();
             flash("success", "The tool is on your way");
             return redirect(routes.userProfile.index(Long.parseLong(session().get("user_id")),
@@ -99,11 +95,9 @@ public class toolUpload extends Controller
         Tool borrowTool = Tool.find.byId(id);
 
         borrowTool.isBorrow = true;
-        Borrow borrower = Borrow.find.byId(borrowTool.borrower.id);
         borrowTool.borrower = null;
-        borrowTool.update();
 
-        borrower.delete();
+        borrowTool.update();
 
         return redirect(routes.toolUpload.show(borrowTool.id));
     }

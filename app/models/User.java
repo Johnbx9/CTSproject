@@ -1,12 +1,10 @@
 package models;
 
-
 import com.avaje.ebean.Model;
 import play.data.validation.Constraints;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.*;
-import javax.validation.Constraint;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +27,8 @@ public class User extends Model
 
     @OneToMany(mappedBy = "toolOwner")
     public List<Tool> toolList = new ArrayList<>();
+    @OneToMany(mappedBy = "borrower")
+    public List<Tool> borrowList = new ArrayList<>();
 
 
     // finder object for easier querying

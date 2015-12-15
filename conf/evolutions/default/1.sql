@@ -3,12 +3,6 @@
 
 # --- !Ups
 
-create table borrow (
-  id                        bigserial not null,
-  name                      varchar(255),
-  constraint pk_borrow primary key (id))
-;
-
 create table category (
   id                        bigserial not null,
   name                      varchar(255),
@@ -41,14 +35,12 @@ alter table tool add constraint fk_tool_toolOwner_1 foreign key (tool_owner_id) 
 create index ix_tool_toolOwner_1 on tool (tool_owner_id);
 alter table tool add constraint fk_tool_tc_2 foreign key (tc_id) references category (id);
 create index ix_tool_tc_2 on tool (tc_id);
-alter table tool add constraint fk_tool_borrower_3 foreign key (borrower_id) references borrow (id);
+alter table tool add constraint fk_tool_borrower_3 foreign key (borrower_id) references users (id);
 create index ix_tool_borrower_3 on tool (borrower_id);
 
 
 
 # --- !Downs
-
-drop table if exists borrow cascade;
 
 drop table if exists category cascade;
 

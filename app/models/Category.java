@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
 
-
 /**
  * Created by Alienware Grunt on 12/11/2015.
  */
@@ -23,7 +22,6 @@ public class Category extends Model
 
     @OneToMany(mappedBy = "tc")
     public List<Tool> toolList;
-
 
     public static Model.Finder<Long,Category> find = new Finder<Long, Category>(Category.class);
 

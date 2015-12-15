@@ -3,9 +3,6 @@
 @main("tool"){
 
 <br>
-tool borrow status: @tool.isBorrow
-<br>
-
     <center><img src="@routes.Assets.versioned("images/hammer.jpg")" width="300" height="200" /></center>
     <br>
     <center>Owner: @User.find.byId(tool.toolOwner.id).username</center>
@@ -14,21 +11,24 @@ tool borrow status: @tool.isBorrow
     <br>
 
     <form action="@routes.toolUpload.borrow(tool.id)" method="post">
-        @if(tool.isBorrow == true){
-        <center><button  class="btn btn-lg btn-success">Borrow</button></center>
-        }else{
-        <center><button  class="btn btn-lg btn-danger">Unavailable</button></center>
+        @if(tool.isBorrow && tool.toolOwner != User.find.byId(Long.parseLong(session().get("user_id"))) ) {
+        <center> <button  class="btn btn-lg btn-success">Borrow</button> </center>
+        }
+        @if(!tool.isBorrow && tool.toolOwner != User.find.byId(Long.parseLong(session().get("user_id")))
+            && tool.borrower != User.find.byId(Long.parseLong(session().get("user_id"))) ){
+        <center> <button  class="btn btn-lg btn-danger">Unavailable</button> </center>
         }
     </form>
 
 
 
-@if(tool.isBorrow != true && tool.borrower.name == User.find.byId(Long.parseLong(session().get("user_id")) ).username){
+    @if(tool.isBorrow != true && tool.borrower == User.find.byId(Long.parseLong(session().get("user_id")) ) ){
         <br>
-        <h1>Ready to return the tool?</h1>
+        <center> <h1>Ready to return the tool?</h1> </center>
+        <center> Just click below</center>
 
         <form action="@routes.toolUpload.giveback(tool.id)" method="post" >
-            <center><button class="btn btn-lg btn-warning">Return</button></center>
+        <center><button class="btn btn-lg btn-warning">Return</button></center>
         </form>
     }
 

@@ -27,10 +27,9 @@ public class Tool extends Model
     public Category tc;
 
     public boolean isBorrow;
+
     @ManyToOne
-    public Borrow borrower;
-
-
+    public User borrower;
 
     // A finder object for easier querying
     public static Model.Finder<Long, Tool> find = new Finder<Long, Tool>(Tool.class);

@@ -1,4 +1,4 @@
-@(tool: List[Tool], user: User)
+@(tool: List[Tool], user: User, borrowList: List[Tool] )
 
 @main("Tool Sharing Community"){
 
@@ -15,7 +15,6 @@
     <div class="row">
         <div class="col-md-9">
             <div class="row">
-
 
     @for(t <- tool){
                 <div class="col-sm-4 col-lg-4 col-md-4">
@@ -44,7 +43,35 @@
 </div>
 
 <br>
-<h3>Tools that you are borrowing right now</h3><br>
+    <center><h3>Tools that you are borrowing right now</h3></center>
+<br>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+
+    @for(b <- borrowList){
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src='@routes.Assets.versioned("stylesheets/bootstrap.min.css")' alt="">
+                <div class="caption">
+                    <h4 class="pull-right"></h4>
+                    <h4><a href="@routes.toolUpload.show(b.id)">@b.name</a>
+                    </h4>
+                    <p>@b.toolDescription.</p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right"></p>
+                    <p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+            </div>
+        </div>
+    </div>
+</div>
 
 }
