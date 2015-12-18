@@ -23,7 +23,7 @@ public class User extends Model
 
     public String password_hash;
 
-    public String address;
+    //public String address;
 
     @OneToMany(mappedBy = "toolOwner")
     public List<Tool> toolList = new ArrayList<>();
