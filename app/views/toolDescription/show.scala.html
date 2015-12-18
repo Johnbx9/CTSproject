@@ -17,7 +17,9 @@
     <br>
     <center>Tool Description: @tool.toolDescription</center>
     <br>
-
+@if(session.get("user_id") == null){
+<center><h1>Login to start borrowing now!</h1></center>
+}else{
     <form action="@routes.toolUpload.borrow(tool.id)" method="post">
         @if(tool.isBorrow && tool.toolOwner != User.find.byId(Long.parseLong(session().get("user_id"))) ) {
         <center> <button  class="btn btn-lg btn-success">Borrow</button> </center>
@@ -38,7 +40,7 @@
         <center><button class="btn btn-lg btn-warning">Return</button></center>
         </form>
     }
-
+}
 <div id="disqus_thread"></div>
 <script>
     /**
