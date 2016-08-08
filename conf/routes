@@ -9,8 +9,8 @@ GET     /                           controllers.Application.index()
 # ========================================================================================
 
 POST    /login                      controllers.Users.login()
-POST    /signup                     controllers.Users.signup()
 GET     /signup                     controllers.Users.index()
+POST    /signup                     controllers.Users.signup()
 GET     /logout                     controllers.Users.logout()
 GET     /profile/:username          controllers.userProfile.index(id: Long, username: String)
 
