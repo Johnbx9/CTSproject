@@ -1,25 +1,28 @@
 @(option : List[Category])
 
-@main("upload tool"){
-<center>
-    <form action="@routes.toolUpload.upload()" method="post">
-        <label for="name">Enter the name of your tool</label>
-        <br>
-        <input type="text" name="name" required>
-        <br>
-        <label for="toolDescription">Enter the condition of the tool</label>
-        <br>
-        <textarea cols="75" rows="10" name="toolDescription" required placeholder="Need to leave a description..."></textarea>
-        <br>
-
-        <select name="stc">
+@main("Upload Tool"){
+<div class="container">
+    <div class="col-sm-4 col-sm-offset-4">
+        <form class="form-horizontal" action="@routes.toolUpload.upload()" method="post">
+            <div class="form-group">
+                <label for="toolName">Enter the name of your tool</label>
+                <input id="toolName" name="name" type="text"  class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="toolDescription" >Enter the condition of the tool</label>
+                <textarea class="form-control" id="toolDescription" name="toolDescription" rows="5" placeholder="Need to leave a description..." required></textarea>
+            </div>
+            <select name="stc" class="form-control">
             @for(c <- option){
-            <option value="@c.id">@c.name</option>
-        }
-        </select>
-        <br>
-        <button>Submit</button>
-    </form>
-    <br>
-</center>
+                <option value="@c.id">@c.name</option>
+            }
+            </select> <br>
+            <div class="form-group">
+                <div class="col-xs-offset-4">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 }
