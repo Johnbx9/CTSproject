@@ -2,26 +2,28 @@
 
 @main("Tool Sharing Community"){
 
-<h1>this is your profile</h1>
-
-<br>
-
 <div class="container">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="row">
-
+                <center><h2>Your tools</h2></center>
     @for(t <- tool){
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
                         @if(t.tc.id == 1){
-                        <img src='@routes.Assets.versioned("images/1.png")'/>
+                        <a href="@routes.toolUpload.show(t.id)">
+                            <img src='@routes.Assets.versioned("images/1.png")'/>
+                        </a>
                         }
                         @if(t.tc.id == 2){
-                        <img src='@routes.Assets.versioned("images/2.png")'/>
+                        <a href="@routes.toolUpload.show(t.id)">
+                            <img src='@routes.Assets.versioned("images/2.png")'/>
+                        </a>
                         }
                         @if(t.tc.id == 3){
-                        <img src='@routes.Assets.versioned("images/3.png")'/>
+                        <a href="@routes.toolUpload.show(t.id)">
+                            <img src='@routes.Assets.versioned("images/3.png")'/>
+                        </a>
                         }
                         <div class="caption">
                             <h4 class="pull-right"></h4>
@@ -53,20 +55,26 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="row">
 
     @for(b <- borrowList){
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
                 @if(b.tc.id == 1){
-                <img src='@routes.Assets.versioned("images/1.png")'/>
+                <a href="@routes.toolUpload.show(b.id)">
+                    <img src='@routes.Assets.versioned("images/1.png")'/>
+                </a>
                 }
                 @if(b.tc.id == 2){
-                <img src='@routes.Assets.versioned("images/2.png")'/>
+                <a href="@routes.toolUpload.show(b.id)">
+                    <img src='@routes.Assets.versioned("images/2.png")'/>
+                </a>
                 }
                 @if(b.tc.id == 3){
-                <img src='@routes.Assets.versioned("images/3.png")'/>
+                <a href="@routes.toolUpload.show(b.id)">
+                    <img src='@routes.Assets.versioned("images/3.png")'/>
+                </a>
                 }
                 <div class="caption">
                     <h4 class="pull-right"></h4>
