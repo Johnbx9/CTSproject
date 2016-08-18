@@ -10,21 +10,9 @@
     @for(t <- tool){
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
-                        @if(t.tc.id == 1){
                         <a href="@routes.toolUpload.show(t.id)">
-                            <img src='@routes.Assets.versioned("images/1.png")'/>
+                            <img src="@routes.toolUpload.getImage(t.id)">
                         </a>
-                        }
-                        @if(t.tc.id == 2){
-                        <a href="@routes.toolUpload.show(t.id)">
-                            <img src='@routes.Assets.versioned("images/2.png")'/>
-                        </a>
-                        }
-                        @if(t.tc.id == 3){
-                        <a href="@routes.toolUpload.show(t.id)">
-                            <img src='@routes.Assets.versioned("images/3.png")'/>
-                        </a>
-                        }
                         <div class="caption">
                             <h4 class="pull-right"></h4>
                             <h4><a href="@routes.toolUpload.show(t.id)">@t.name</a>
@@ -40,8 +28,6 @@
                     </div>
                 </div>
 }
-
-
             </div>
         </div>
     </div>
@@ -63,17 +49,7 @@
             <div class="thumbnail">
                 @if(b.tc.id == 1){
                 <a href="@routes.toolUpload.show(b.id)">
-                    <img src='@routes.Assets.versioned("images/1.png")'/>
-                </a>
-                }
-                @if(b.tc.id == 2){
-                <a href="@routes.toolUpload.show(b.id)">
-                    <img src='@routes.Assets.versioned("images/2.png")'/>
-                </a>
-                }
-                @if(b.tc.id == 3){
-                <a href="@routes.toolUpload.show(b.id)">
-                    <img src='@routes.Assets.versioned("images/3.png")'/>
+                    <img src="@routes.toolUpload.getImage(b.id)">
                 </a>
                 }
                 <div class="caption">

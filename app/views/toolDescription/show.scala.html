@@ -21,17 +21,17 @@
 <center><h1>Login to start borrowing now!</h1></center>
 }else{
     <form action="@routes.toolUpload.borrow(tool.id)" method="post">
-        @if(tool.isBorrow && tool.toolOwner != User.find.byId(Long.parseLong(session().get("user_id"))) ) {
+        @if(tool.isBorrowable && tool.toolOwner != User.find.byId(Long.parseLong(session().get("user_id"))) ) {
         <center> <button  class="btn btn-lg btn-success">Borrow</button> </center>
         }
-        @if(!tool.isBorrow && tool.toolOwner != User.find.byId(Long.parseLong(session().get("user_id")))
+        @if(!tool.isBorrowable && tool.toolOwner != User.find.byId(Long.parseLong(session().get("user_id")))
             && tool.borrower != User.find.byId(Long.parseLong(session().get("user_id"))) ){
         <center> <button  class="btn btn-lg btn-danger">Unavailable</button> </center>
         }
     </form>
 
 
-    @if(tool.isBorrow != true && tool.borrower == User.find.byId(Long.parseLong(session().get("user_id")) ) ){
+    @if(tool.isBorrowable != true && tool.borrower == User.find.byId(Long.parseLong(session().get("user_id")) ) ){
         <br>
         <center> <h1>Ready to return the tool?</h1> </center>
         <center> Just click below</center>

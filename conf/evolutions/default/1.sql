@@ -16,8 +16,9 @@ create table tool (
   stc                       varchar(255),
   tool_owner_id             bigint,
   tc_id                     bigint,
-  is_borrow                 boolean,
+  is_borrowable             boolean,
   borrower_id               bigint,
+  image_file                bytea,
   constraint pk_tool primary key (id))
 ;
 

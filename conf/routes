@@ -19,6 +19,7 @@ POST    /upload                     controllers.toolUpload.upload()
 GET     /tool/:id                   controllers.toolUpload.show(id: Long)
 POST    /tool/:id                   controllers.toolUpload.borrow(id: Long)
 POST    /gavetool/:id               controllers.toolUpload.giveback(id: Long)
+GET     /getImage                   controllers.toolUpload.getImage(id: Long)
 
 GET     /about                      controllers.About.index()
 GET     /AllTools                   controllers.toolUpload.showAll()
