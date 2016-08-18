@@ -9,19 +9,12 @@
             <div class="col-md-12">
                 <div class="row">
 
-
                     @for(t <- tool){
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            @if(t.tc.id == 1){
-                            <img src='@routes.Assets.versioned("images/1.png")'/>
-                            }
-                            @if(t.tc.id == 2){
-                            <img src='@routes.Assets.versioned("images/2.png")'/>
-                            }
-                            @if(t.tc.id == 3){
-                            <img src='@routes.Assets.versioned("images/3.png")'/>
-                            }
+                            <a href="@routes.toolUpload.show(t.id)">
+                                <img src="@routes.toolUpload.getImage(t.id)">
+                            </a>
                             <div class="caption">
                                 <h4 class="pull-right"></h4>
                                 <h4><a href="@routes.toolUpload.show(t.id)">@t.name</a>
@@ -35,9 +28,7 @@
                             </div>
                         </div>
                     </div>
-
-                    }
-
+}
                 </div>
             </div>
         </div>
