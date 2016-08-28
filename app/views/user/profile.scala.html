@@ -10,12 +10,12 @@
     @for(t <- tool){
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
-                        <a href="@routes.toolUpload.show(t.id)">
-                            <img src="@routes.toolUpload.getImage(t.id)">
+                        <a href="@routes.toolAction.show(t.id)">
+                            <img src="@routes.toolAction.getImage(t.id)">
                         </a>
                         <div class="caption">
                             <h4 class="pull-right"></h4>
-                            <h4><a href="@routes.toolUpload.show(t.id)">@t.name</a>
+                            <h4><a href="@routes.toolAction.show(t.id)">@t.name</a>
                             </h4>
                             <p>@t.toolDescription.</p>
                         </div>
@@ -48,13 +48,13 @@
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
                 @if(b.tc.id == 1){
-                <a href="@routes.toolUpload.show(b.id)">
-                    <img src="@routes.toolUpload.getImage(b.id)">
+                <a href="@routes.toolAction.show(b.id)">
+                    <img src="@routes.toolAction.getImage(b.id)">
                 </a>
                 }
                 <div class="caption">
                     <h4 class="pull-right"></h4>
-                    <h4><a href="@routes.toolUpload.show(b.id)">@b.name</a>
+                    <h4><a href="@routes.toolAction.show(b.id)">@b.name</a>
                     </h4>
                     <p>@b.toolDescription.</p>
                 </div>

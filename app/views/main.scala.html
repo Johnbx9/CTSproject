@@ -51,11 +51,11 @@
                         <a href="@routes.About.index()">About</a>
                     </li>
                     <li>
-                        <a href="@routes.toolUpload.showAll()">Tools</a>
+                        <a href="@routes.toolAction.showAll()">Tools</a>
                     </li>
                 @if(session.containsKey("user_id")){
                     <li>
-                        <a href="@routes.toolUpload.index()">Upload</a>
+                        <a href="@routes.toolAction.index()">Upload</a>
                     </li>
                     <li>
                         <a href="@routes.Users.logout()">Logout</a>

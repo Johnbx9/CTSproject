@@ -14,7 +14,7 @@ import static play.data.Form.form;
 /**
  * Created by Alienware Grunt on 12/2/2015.
  */
-public class toolUpload extends Controller
+public class toolAction extends Controller
 {
     public Result index()
     {
@@ -126,7 +126,7 @@ public class toolUpload extends Controller
         {
             //can't borrow the tool
             flash("error", "Can't be borrowed at the moment");
-            return redirect(routes.toolUpload.show(borrowTool.id));
+            return redirect(routes.toolAction.show(borrowTool.id));
         }
         else
         {
@@ -153,7 +153,7 @@ public class toolUpload extends Controller
 
         borrowTool.update();
 
-        return redirect(routes.toolUpload.show(borrowTool.id));
+        return redirect(routes.toolAction.show(borrowTool.id));
     }
 
 }
