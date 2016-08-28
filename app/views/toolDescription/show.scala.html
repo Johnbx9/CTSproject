@@ -2,16 +2,15 @@
 
 @main("tool"){
 
-<br>
-    @if(tool.tc.id == 1){
-        <center><img src='@routes.Assets.versioned("images/1.png")'/></center>
-    }
-    @if(tool.tc.id == 2){
-        <center><img src='@routes.Assets.versioned("images/2.png")'/></center>
-    }
-    @if(tool.tc.id == 3){
-        <center><img src='@routes.Assets.versioned("images/3.png")'/></center>
-    }
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-offset-3 col-md-6">
+                <img class="img-responsive" src="@routes.toolUpload.getImage(tool.id)">
+            </div>
+        </div>
+    </div>
+</div>
     <br>
     <center>Owner: @User.find.byId(tool.toolOwner.id).username</center>
     <br>
