@@ -44,13 +44,13 @@ public class toolUpload extends Controller
         if (picture != null)
         {
             File file = picture.getFile();
-            tool.imageFile = imageToByte(file);
+            tool.imageFile = imageToBytes(file);
         }
         else
         {
             // If no image is uploaded then use "no image" image
             File noImage = Play.application().getFile("public/images/noImage.jpg");
-            tool.imageFile = imageToByte(noImage);
+            tool.imageFile = imageToBytes(noImage);
             tool.save();
             return redirect(routes.userProfile.index( Long.parseLong(session().get("user_id")) , user.username) );
         }
@@ -61,9 +61,8 @@ public class toolUpload extends Controller
         return redirect(routes.userProfile.index( Long.parseLong(session().get("user_id")) , user.username) );
     }
 
-    public Result getImage(Long id)
+    public Result getImage(Long id) throws FileNotFoundException
     {
-        User user = User.find.byId(Long.parseLong(session().get("user_id")) );
         Tool tool = Tool.find.byId(id);
 
         if (tool.imageFile != null)
@@ -74,11 +73,11 @@ public class toolUpload extends Controller
         else
         {
             flash("Error", "picture wasn't found or didn't work");
-            return redirect(routes.userProfile.index( Long.parseLong(session().get("user_id")) , user.username));
+            return redirect(routes.Application.index() );
         }
     }
 
-    private byte [] imageToByte(File file) throws FileNotFoundException
+    private byte [] imageToBytes(File file) throws FileNotFoundException
     {
         FileInputStream fileInputStream = new FileInputStream(file);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -98,7 +97,6 @@ public class toolUpload extends Controller
         return byteArrayOutputStream.toByteArray();
     }
 
-//    @Security.Authenticated(UserAuth.class)
     public Result show(Long id)
     {
         Tool tool = Tool.find.byId(id);
