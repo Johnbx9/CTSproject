@@ -27,19 +27,28 @@ public class toolAction extends Controller
     public Result upload() throws FileNotFoundException
     {
         User user = User.find.byId(Long.parseLong(session().get("user_id")) );
+        // Getting from input named "image"
+        Http.MultipartFormData body = request().body().asMultipartFormData();
+        Http.MultipartFormData.FilePart picture = body.getFile("image");
+
+        // If user uploaded an image, then check its size
+        if (picture != null)
+        {
+            // 5MB in bytes
+            if (picture.getFile().length() >= 5000000)
+            {
+                flash("error", "Image is too large. Max is 5MB");
+                return redirect(routes.toolAction.upload());
+            }
+        }
 
         Form<Tool> toolForm = form(Tool.class).bindFromRequest();
         Tool tool = toolForm.get();
         tool.toolOwner = user;
 
         // gets tool category from the form and save to tool model tc
-        Category option = Category.find.byId(Long.parseLong(tool.stc));
-        tool.tc = option;
+        tool.tc = Category.find.byId(Long.parseLong(tool.stc));
         tool.isBorrowable = true;
-        // Setting up to save pic into database
-        Http.MultipartFormData body = request().body().asMultipartFormData();
-        // GetFile is getting from input named "image"
-        Http.MultipartFormData.FilePart picture = body.getFile("image");
 
         if (picture != null)
         {

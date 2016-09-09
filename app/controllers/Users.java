@@ -66,7 +66,6 @@ public class Users extends Controller
         for (int i = 0; i <= session().size(); i++)
         {
             session().remove("user_id");
-
         }
 
         return redirect(routes.Application.index() );

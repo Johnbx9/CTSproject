@@ -15,7 +15,7 @@
             <div class="form-group">
                 <label for="inputFile">File input</label>
                 <input type="file" name="image" id="inputFile" accept=".jpg, .png, .jpeg">
-                <p class="help-block">Only accepts .JPG, .PNG, or .JPEG file</p>
+                <p id="hb" class="help-block">Only accepts .JPG, .PNG, or .JPEG file (Max: 5MB)</p>
             </div>
             <select name="stc" class="form-control">
             @for(c <- option){
