@@ -70,12 +70,22 @@
 
         @* Display flash messages *@
         @if(flash.containsKey("success")) {
-            <center> <p>Success Flash Message:</p>
-            @flash.get("success") </center>
+            <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <center> <Strong>Success!</Strong> @flash.get("success")</center>
+            </div>
         }
         @if(flash.containsKey("error")) {
-            <center> <p>Error Flash Message:</p>
-            @flash.get("error") </center>
+            <div class="alert alert-danger fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <center> <Strong>Error: </Strong> @flash.get("error") </center>
+            </div>
+        }
+        @if(flash.containsKey("warning")) {
+        <div class="alert alert-warning fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <center> <Strong>Warning: </Strong> @flash.get("warning") </center>
+        </div>
         }
 
         @content
@@ -85,5 +95,6 @@
 
         <!-- Bootstrap Core JavaScript -->
         <script src='@routes.Assets.versioned("javascripts/bootstrap.min.js")'></script>
+        <script src='@routes.Assets.versioned("javascripts/custom.js")'></script>
     </body>
 </html>
