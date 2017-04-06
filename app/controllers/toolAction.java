@@ -1,10 +1,14 @@
 package controllers;
 
-import models.*;
+import models.Category;
+import models.Tool;
 import models.User;
 import play.Play;
 import play.data.Form;
-import play.mvc.*;
+import play.mvc.Controller;
+import play.mvc.Http;
+import play.mvc.Result;
+import play.mvc.Security;
 
 import java.io.*;
 import java.util.List;
@@ -32,27 +36,27 @@ public class toolAction extends Controller
         Http.MultipartFormData.FilePart picture = body.getFile("image");
 
         // If user uploaded an image, then check its size
-        if (picture != null)
-        {
-            // 5MB in bytes
-            if (picture.getFile().length() >= 5000000)
-            {
-                flash("error", "Image is too large. Max is 5MB");
-                return redirect(routes.toolAction.upload());
-            }
-        }
+//        if (picture != null)
+//        {
+//            // 5MB in bytes
+//            if (picture.getFile().length() >= 5000000)
+//            {
+//                flash("error", "Image is too large. Max is 5MB");
+//                return redirect(routes.toolAction.upload());
+//            }
+//        }
 
         Form<Tool> toolForm = form(Tool.class).bindFromRequest();
         Tool tool = toolForm.get();
         tool.toolOwner = user;
 
         // gets tool category from the form and save to tool model tc
-        tool.tc = Category.find.byId(Long.parseLong(tool.stc));
+//        tool.tc = Category.find.byId(Long.parseLong(tool.stc));
         tool.isBorrowable = true;
 
         if (picture != null)
         {
-            File file = picture.getFile();
+            File file = (File) picture.getFile();
             tool.imageFile = imageToBytes(file);
         }
         else
