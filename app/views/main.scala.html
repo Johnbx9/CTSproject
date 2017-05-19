@@ -15,59 +15,54 @@
 
         <link href='@routes.Assets.versioned("stylesheets/bootstrap.min.css")' rel="stylesheet" >
 
-    <!-- Custom CSS -->
-    <link  href='@routes.Assets.versioned("stylesheets/shop-homepage.css")' rel="stylesheet">
+            <!-- Custom CSS -->
+        <link href='@routes.Assets.versioned("stylesheets/shop-homepage.css")' rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
     </head>
     <body>
-        <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @if(session.containsKey("user_id")){
-                <a class="navbar-brand" href='@routes.userProfile.index(Long.parseLong(session().get("user_id")), session().get("user_id") )'>Hammer Time</a>
-                }else{
-                <a class="navbar-brand" href="@routes.Application.index()">Hammer Time</a>
-                }
+            <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@routes.Application.index()">Hammer Time</a>
+                </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="@routes.Application.aboutPage()">About</a>
+                        </li>
+                        <li>
+                            <a href="@routes.ToolController.showAll()">Tools</a>
+                        </li>
+                        @if(session.containsKey("user_id")) {
+                            <li>
+                                <a href="@routes.ToolController.upload()">Upload</a>
+                            </li>
+                            <li>
+                                <a href="@routes.UserController.logout()">Logout</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                    <!-- /.navbar-collapse -->
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="@routes.About.index()">About</a>
-                    </li>
-                    <li>
-                        <a href="@routes.toolAction.showAll()">Tools</a>
-                    </li>
-                @if(session.containsKey("user_id")){
-                    <li>
-                        <a href="@routes.toolAction.index()">Upload</a>
-                    </li>
-                    <li>
-                        <a href="@routes.Users.logout()">Logout</a>
-                    </li>
-                    }
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
+                <!-- /.container -->
+        </nav>
         @* Display flash messages *@
         @if(flash.containsKey("success")) {
             <div class="alert alert-success fade in">
@@ -78,22 +73,22 @@
         @if(flash.containsKey("error")) {
             <div class="alert alert-danger fade in">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-               <center> <Strong>Error: </Strong> @flash.get("error") </center>
+                <center> <Strong>Error: </Strong> @flash.get("error") </center>
             </div>
         }
         @if(flash.containsKey("warning")) {
-        <div class="alert alert-warning fade in">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <center> <Strong>Warning: </Strong> @flash.get("warning") </center>
-        </div>
+            <div class="alert alert-warning fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <center> <Strong>Warning: </Strong> @flash.get("warning") </center>
+            </div>
         }
 
         @content
 
-        <!-- jQuery -->
+            <!-- jQuery -->
         <script src='@routes.Assets.versioned("javascripts/jquery.js")'></script>
 
-        <!-- Bootstrap Core JavaScript -->
+            <!-- Bootstrap Core JavaScript -->
         <script src='@routes.Assets.versioned("javascripts/bootstrap.min.js")'></script>
         <script src='@routes.Assets.versioned("javascripts/custom.js")'></script>
     </body>

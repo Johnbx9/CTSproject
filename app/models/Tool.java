@@ -1,32 +1,51 @@
 package models;
 
 import com.avaje.ebean.Model;
+import play.data.validation.Constraints;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
-// Tool is for submitting Tool
+
 @Entity
+@Table(name = "tool")
 public class Tool extends Model
 {
+    // A finder object for easier querying
+    public static Model.Finder<Long, Tool> find = new Finder<>(Tool.class);
     @Id
     public Long id;
+    @Constraints.Required(message = "required.message")
     public String name;
-    public String toolDescription;
-    // String tool category id
-    public String stc;
-    @ManyToOne
-    public User toolOwner;
-    @ManyToOne
-    public Category tc;
-    public boolean isBorrowable;
-    @ManyToOne
+    public String description;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    public User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "borrower_id")
     public User borrower;
     @Lob
-    public byte [] imageFile;
+    public byte[] imageFile;
 
-    // A finder object for easier querying
-    public static Model.Finder<Long, Tool> find = new Finder<Long, Tool>(Tool.class);
+    /**
+     * The list of tools owned by a user.
+     *
+     * @param id the id of the user
+     * @return a list of tools
+     */
+    public static List<Tool> userList(Long id)
+    {
+        return find.where().eq("user_id", id).orderBy("id").findList();
+    }
+
+    /**
+     * The list of tools that a user is borrowing.
+     *
+     * @param id the user's id
+     * @return a list of tools
+     */
+    public static List<Tool> borrowList(Long id)
+    {
+        return find.where().eq("borrower_id", id).orderBy("id").findList();
+    }
 }

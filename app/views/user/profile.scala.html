@@ -1,74 +1,70 @@
-@(tool: List[Tool], user: User, borrowList: List[Tool] )
+@(tool: List[Tool], borrowList: List[Tool], user: User)
 
-@main("Tool Sharing Community"){
+@main("Tool Sharing Community") {
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <center><h2>Your tools</h2></center>
-    @for(t <- tool){
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <a href="@routes.toolAction.show(t.id)">
-                            <img src="@routes.toolAction.getImage(t.id)">
-                        </a>
-                        <div class="caption">
-                            <h4 class="pull-right"></h4>
-                            <h4><a href="@routes.toolAction.show(t.id)">@t.name</a>
-                            </h4>
-                            <p>@t.toolDescription.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <center><h2>Your tools</h2></center>
+                    @for(t <- tool) {
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <a href="@routes.ToolController.show(t.id)">
+                                    @*<img src="@routes.ToolController.getImage(t.id)">*@
+                                </a>
+                                <div class="caption">
+                                    <h4 class="pull-right"></h4>
+                                    <h4><a href="@routes.ToolController.show(t.id)">@t.name</a>
+                                    </h4>
+                                    <p>@t.description</p>
+                                </div>
+                                <div class="ratings">
+                                    <p class="pull-right"></p>
+                                    <p></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ratings">
-                            <p class="pull-right"></p>
-                            <p>
-
-                            </p>
-                        </div>
-                    </div>
+                    }
                 </div>
-}
             </div>
         </div>
     </div>
-</div>
 
-<br>
-@if(!user.borrowList.isEmpty() ){
-    <center><h3>Tools that you are borrowing right now</h3></center>
-}
-<br>
+    <br>
+    @if(!borrowList.isEmpty) {
+        <center><h3>Tools that you are borrowing right now</h3></center>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+        <br>
+        <div class="container">
             <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
 
-    @for(b <- borrowList){
-        <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-                @if(b.tc.id == 1){
-                <a href="@routes.toolAction.show(b.id)">
-                    <img src="@routes.toolAction.getImage(b.id)">
-                </a>
-                }
-                <div class="caption">
-                    <h4 class="pull-right"></h4>
-                    <h4><a href="@routes.toolAction.show(b.id)">@b.name</a>
-                    </h4>
-                    <p>@b.toolDescription.</p>
-                </div>
-                <div class="ratings">
-                    <p class="pull-right"></p>
-                    <p>
-                    </p>
-                </div>
-            </div>
-        </div>
-    }
-            </div>
-        </div>
+                        @for(b <- borrowList) {
+                            <div class="col-sm-4 col-lg-4 col-md-4">
+                                <div class="thumbnail">
+                                    @** @if(b.tc.id == 1){*@
+                                    @*<a href="@routes.ToolController.show(b.id)">*@
+                                    @*<img src="@routes.ToolController.getImage(b.id)">*@
+                                    @*</a>*@
+                                    @*}*@
+                                <div class="caption">
+                                    <h4 class="pull-right"></h4>
+                                    <h4><a href="@routes.ToolController.show(b.id)">@b.name</a>
+                                    </h4>
+                                    <p>@b.description.</p>
+                                </div>
+                                <div class="ratings">
+                                    <p class="pull-right"></p>
+                                    <p></p>
+                                </div>
+                                </div>
+                            </div>
+                        }
+                    }
+</div>
+</div>
     </div>
 </div>
-
 }

@@ -1,0 +1,26 @@
+@(userForm: Form[User])
+
+    @import helper._
+    @import models._
+
+    @main("Sign up") {
+        <div class="container">
+            <div class="col-sm-4 col-sm-offset-4">
+            @form(action = routes.UserController.save(), 'class -> "form-horizontal") {
+                @inputText(userForm("email"), 'class -> "form-control", 'placeholder -> "email", 'type -> "text", '_label -> "Email", 'id -> "email")
+                @inputText(userForm("username"), 'id -> "username", '_label -> "Username", 'type -> "text", 'class -> "form-control", 'placeholder -> "username")
+                @inputPassword(userForm("password"), 'id -> "password", '_label -> "Password", 'class -> "form-control", 'placeholder -> "Password: At least 8 characters")
+                <div class="form-group">
+                    <div class="col-xs-offset-4">
+                        <button type="submit" class="btn btn-default">Sign up</button>
+                    </div>
+                </div>
+            }
+            </div>
+
+            <div class="col-sm-4 col-sm-offset-4">
+                Already have an account?
+                <a href="@routes.Application.index()">Login</a>
+            </div>
+        </div>
+    }

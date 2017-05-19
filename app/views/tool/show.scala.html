@@ -1,0 +1,64 @@
+@(tool: Tool)
+
+    @main("tool") {
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-offset-3 col-md-6">
+                        <img class="img-responsive" src="@routes.ToolController.getImage(tool.id)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <center>Owner: @tool.user.username</center>
+        <br>
+        <center>Tool Description: @tool.description</center>
+        <br>
+        @if(session.get("user_id") != null && tool.user != User.find.byId(Long.parseLong(session().get("user_id")))) {
+            @if(tool.borrower == null) {
+                <form action="@routes.ToolController.borrow(tool.id)" method="post">
+                    <button class="btn btn-lg btn-success">Borrow</button>
+                </form>
+            } else {
+                @if(tool.borrower == User.find.byId(Long.parseLong(session().get("user_id")))) {
+                    <center> <h1>Ready to return the tool?</h1> </center>
+                    <center> Just click below</center>
+
+                    <form action="@routes.ToolController.giveback(tool.id)" method="post" >
+                        <center><button class="btn btn-lg btn-warning">Return</button></center>
+                    </form>
+                } else {
+                    <button class="btn btn-lg btn-danger">Unavailable</button>
+                }
+            }
+        }
+        @if(session().get("user_id") == null) {
+            <center><h1>Login to start borrowing now!</h1></center>
+        }
+
+        <div id="disqus_thread"></div>
+        <script>
+                /**
+                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                 */
+
+                var disqus_config = function () {
+                    this.page.url = 'https://sleepy-badlands-2483.herokuapp.com/tool/@tool.id';  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = '@tool.id'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+
+                (function () {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//sleepybadlands2483.disqus.com/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">
+            comments powered by Disqus.</a></noscript>
+    }

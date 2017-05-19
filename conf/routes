@@ -3,29 +3,28 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET         /                         controllers.Application.index()
 
-# Below is the routes for the CTSproject
-# ========================================================================================
+# User
+POST        /login                    controllers.UserController.login()
+GET         /signup                   controllers.UserController.signUp()
+POST        /signup                   controllers.UserController.save()
+GET         /logout                   controllers.UserController.logout()
+GET         /profile/:username        controllers.UserProfileController.index(username: String)
 
-POST    /login                      controllers.Users.login()
-GET     /signup                     controllers.Users.index()
-POST    /signup                     controllers.Users.signup()
-GET     /logout                     controllers.Users.logout()
-GET     /profile/:username          controllers.userProfile.index(id: Long, username: String)
+# Tool
+GET         /upload                   controllers.ToolController.upload()
+POST        /upload                   controllers.ToolController.save()
+GET         /tool/:id                 controllers.ToolController.show(id: Long)
+POST        /tool/:id                 controllers.ToolController.borrow(id: Long)
+POST        /gavetool/:id             controllers.ToolController.giveback(id: Long)
+GET         /getImage                 controllers.ToolController.getImage(id: Long)
+GET         /AllTools                 controllers.ToolController.showAll()
 
-GET     /upload                     controllers.toolAction.index()
-POST    /upload                     controllers.toolAction.upload()
-GET     /tool/:id                   controllers.toolAction.show(id: Long)
-POST    /tool/:id                   controllers.toolAction.borrow(id: Long)
-POST    /gavetool/:id               controllers.toolAction.giveback(id: Long)
-GET     /getImage                   controllers.toolAction.getImage(id: Long)
-GET     /AllTools                   controllers.toolAction.showAll()
-
-GET     /about                      controllers.About.index()
+GET         /about                    controllers.Application.aboutPage()
 
 
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file             controllers.Assets.versioned(path="/public", file: Asset)

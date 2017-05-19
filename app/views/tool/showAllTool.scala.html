@@ -1,7 +1,7 @@
 @(tool: List[Tool])
 
 @main("Available Tools"){
-    <center><p><h2>All the tools that are being shared right now!</h2></p></center>
+    <center><h2>All the tools that are being shared right now!</h2></center>
     <br>
 
     <div class="container">
@@ -12,14 +12,14 @@
                     @for(t <- tool){
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <a href="@routes.toolAction.show(t.id)">
-                                <img src="@routes.toolAction.getImage(t.id)">
+                            <a href="@routes.ToolController.show(t.id)">
+                                <img src="@routes.ToolController.getImage(t.id)">
                             </a>
                             <div class="caption">
                                 <h4 class="pull-right"></h4>
-                                <h4><a href="@routes.toolAction.show(t.id)">@t.name</a>
+                                <h4><a href="@routes.ToolController.show(t.id)">@t.name</a>
                                 </h4>
-                                <p>@t.toolDescription.</p>
+                                <p>@t.description</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right"></p>
